@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import Protocol
 
-from commands.command import Command
+from tracker.protocol.command import Command
 
 
 class Adapter(Protocol):

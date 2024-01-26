@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-
 from dataclasses import dataclass, field
 from queue import Queue
 from threading import Event, Lock, Thread
 
-from commands.command import Command
-from commands.tables import TablesByChannel
-from device.adapter import Adapter
+from tracker.device.adapter import Adapter
+from tracker.protocol.command import Command
+from tracker.protocol.tables import TablesByChannel
 
 
 @dataclass
@@ -38,14 +36,3 @@ class Device:
                 self.adapter.write(command)
                 command = self.adapter.read()
                 print(f"{command}")
-
-
-
-# send bytes -> command_t -> encode -> to port
-# polling
-# getting bytes -> decode -> command_t -> call handler by id
-
-# connect
-# write -> polling -> call handler
-
-# table of handlers for each channel
