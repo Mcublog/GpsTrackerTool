@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from queue import Queue
 from threading import Event, Lock, Thread
 
-from tracker.device.adapter import Adapter
+from tracker.adapter import Adapter
 from tracker.device.device import Device
 
 

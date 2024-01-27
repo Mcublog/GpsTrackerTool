@@ -1,23 +1,15 @@
-from abc import abstractmethod
-from typing import Protocol
+from curses import baudrate
+from dataclasses import dataclass
 
-from tracker.protocol.command import Command
+import serial
+
+from tracker.adapter import Adapter
 
 
-class Adapter(Protocol):
+@dataclass
+class SerialPortAdapter(Adapter):
+    portname: str
+    baudrate: int
+    ctsrts: bool
 
-    @abstractmethod
-    def connect(self) -> bool:
-        ...
-
-    @abstractmethod
-    def disconnect(self) -> bool:
-        ...
-
-    @abstractmethod
-    def write(self, command: Command) -> int:
-        ...
-
-    @abstractmethod
-    def read(self) -> Command:
-        ...
+    _serial: serial.Serial
