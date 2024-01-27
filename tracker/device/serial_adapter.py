@@ -1,9 +1,7 @@
 from dataclasses import dataclass, field
 
 import serial
-
-from tracker.adapter import Adapter
-from tracker.command import Command
+from tracker.interface import Adapter, Command
 
 
 @dataclass

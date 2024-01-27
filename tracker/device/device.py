@@ -2,8 +2,7 @@ from dataclasses import dataclass, field
 from queue import Queue
 from threading import Event, Lock, Thread
 
-from tracker.adapter import Adapter
-from tracker.command import Command
+from tracker.interface import Adapter, Command
 from tracker.protocol.tables import TablesByChannel
 
 
