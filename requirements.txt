@@ -1,3 +1,4 @@
 pyserial
 cobs
 pyserial>=3.5
+pylogus
