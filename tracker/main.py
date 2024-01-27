@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
 
-from dataclasses import dataclass, field
-from queue import Queue
-from threading import Event, Lock, Thread
-
-from tracker.adapter import Adapter
-from tracker.device.device import Device
-
-
 def main():
     pass
 

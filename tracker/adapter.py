@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+from abc import abstractmethod
 from typing import Protocol
 
 
@@ -18,7 +17,7 @@ class Command(Protocol):
         ...
 
     @paylod.setter
-    def paylod(self, paylod:bytes):
+    def paylod(self, paylod: bytes):
         ...
 
     @property
@@ -26,7 +25,7 @@ class Command(Protocol):
         ...
 
     @timeout_ms.setter
-    def timeout_ms(self, timeout_ms:int):
+    def timeout_ms(self, timeout_ms: int):
         ...
 
     def serialize(self) -> bytes:
@@ -34,4 +33,23 @@ class Command(Protocol):
 
     @staticmethod
     def deserialize(raw: bytes) -> 'Command':
+        ...
+
+
+class Adapter(Protocol):
+
+    @abstractmethod
+    def connect(self) -> bool:
+        ...
+
+    @abstractmethod
+    def disconnect(self) -> bool:
+        ...
+
+    @abstractmethod
+    def write(self, command: Command) -> int:
+        ...
+
+    @abstractmethod
+    def read(self) -> Command:
         ...

@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 
 import tracker.protocol.cobs.message as msg
-from src.tracker.command import Command
+from tracker.adapter import Command
 
 
 @dataclass
